@@ -9,8 +9,15 @@ import notificationRoutes from './routes/notification.route.js';
 import connectionRoutes from './routes/connection.route.js';
 
 import { connectDB } from './lib/db.js';
-
+import cors from 'cors';
 dotenv.config();
+
+app.use(
+  cors({
+    origin: 'http://localhost:5173',
+    credentials: true,
+  })
+);
 
 const PORT = process.env.PORT || 5000;
 const app = express();
